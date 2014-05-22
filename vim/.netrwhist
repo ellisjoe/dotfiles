@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/jellis/.vim'
+let g:netrw_dirhist_2='/Users/jellis/.vim/syntax'
+let g:netrw_dirhist_3='/Users/jellis/svn-repos/hadoop/releases/hadoop-2.2.0/scriptsTest/workGenLogs'
+let g:netrw_dirhist_4='/private/tmp/hadoop-jellis/workGenInput'
+let g:netrw_dirhist_5='/Users/jellis/git-repos/SWIM/workloadSuite/HDFSWrite'
+let g:netrw_dirhist_6='/Users/jellis/git-repos/dot-files/.git'
