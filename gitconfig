@@ -1,0 +1,13 @@
+[user]
+	name = Joe
+	email = ellis125@gmail.com
+[color]
+	ui = auto
+
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
