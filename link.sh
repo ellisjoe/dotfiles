@@ -2,6 +2,7 @@
 
 # link everything that isn't a script
 for DF in $(ls | grep -v "\.sh"); do
-    ln -is $(pwd)/$DF ~/.$DF
+    rm -rf ~/.$DF
+    ln -s $(pwd)/$DF ~/.$DF
 done
 
