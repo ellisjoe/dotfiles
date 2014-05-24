@@ -9,7 +9,8 @@ cp my-clean.zsh-theme oh-my-zsh/themes
 
 FILES=( gitconfig oh-my-zsh tmux.conf vim vimrc zshrc )
 # link everything that isn't a script
-for DF in FILES; do
+for DF in ${FILES[*]}; do
+    echo $DF
     rm -rf ~/.$DF
     ln -s $(pwd)/$DF ~/.$DF
 done
