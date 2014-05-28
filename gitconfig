@@ -11,3 +11,5 @@
     co = checkout
     df = diff
     lg = log -p
+[push]
+	default = simple
