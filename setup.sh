@@ -15,3 +15,5 @@ for DF in ${FILES[*]}; do
     ln -s $(pwd)/$DF ~/.$DF
 done
 
+# install pathogen
+cp vim-pathogen/autoload/pathogen.vim vim/bundle/
