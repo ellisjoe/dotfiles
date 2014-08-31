@@ -7,7 +7,10 @@ set autoindent
 set smartindent
 syntax enable
 set background=dark
-colorscheme solarized
+set mouse=a
+
+" enable Pathogen
+execute pathogen#infect()
 
 " enable pathogen
 execute pathogen#infect()
@@ -21,6 +24,9 @@ set number
 " show column numbers in statusline
 set ruler
 
+" disable folding
+set nofoldenable
+
 " allow vim to find tags file in parent directories
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,tags
 
@@ -33,7 +39,9 @@ au BufNewFile,BufRead *.txt setf markdown
 " set glsl as syntax for files
 au BufNewFile,BufRead *.frag,*.vert,*.vsh,*.fsh setf glsl
 au BufNewFile,BufRead *.coffee setf js
+au BufNewFile,BufRead *.gradle setf groovy
 
+let mapleader = ","
 " this was commented out with zsh/solarized --- let g:solarized_termcolors=256
 " set t_Co=256
 
@@ -42,6 +50,7 @@ set nofoldenable
 
 " fix some fucked up Vim 7.4 backspace problems
 set backspace=2
+
 
 " ###########################
 " #### NERDTree settings ####
@@ -53,7 +62,7 @@ map <C-n> :NERDTreeToggle<CR>
 " show current file in NERDTree
 nmap ,n :NERDTreeFind<CR>
 
-" ignore and dirs containing build
+" ignore dirs containing build
 let NERDTreeIgnore=['\~$', 'build[[dir]]']
 let g:ctrlp_custom_ignore = {
   \ 'dir':  'build',
@@ -64,7 +73,30 @@ nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 
-" ##### added for vim-latex ######
+
+" #############################
+" #### EasyMotion Settings ####
+" #############################
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-s)
+hi EasyMotionTarget2First ctermbg=none ctermfg=red
+hi EasyMotionTarget2Second ctermbg=none ctermfg=red
+
+
+" ###########################
+" #### Fugitive Settings ####
+" ###########################
+
+" Map .. to move up to the parent commit when viewing a tree or blob object
+autocmd User fugitive if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' | nnoremap <buffer> .. :edit %:h<CR> | endif
+
+
+" ############################
+" #### Vim-Latex Settings ####
+" ############################
+
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.

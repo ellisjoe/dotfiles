@@ -69,9 +69,12 @@ alias notify='terminal-notifier -message "Done" -title "NOTIFICATION"'
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+
+# use vi bindings for readline enabled apps
+set editing-mode vi
 
 alias hlog='git log --date-order --all --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
 alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
+
+alias ocaml="rlwrap ocaml"
+alias zsrc="source ~/.zshrc"
