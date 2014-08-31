@@ -50,9 +50,11 @@ map <C-n> :NERDTreeToggle<CR>
 " show current file in NERDTree
 nmap ,n :NERDTreeFind<CR>
 
-" open NERDTree when no file is specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" ignore and dirs containing build
+let NERDTreeIgnore=['\~$', 'build[[dir]]']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'build',
+  \ }
 
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
