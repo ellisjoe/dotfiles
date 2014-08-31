@@ -9,6 +9,9 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" enable pathogen
+execute pathogen#infect()
+
 " don't keep a swap file
 set noswapfile
 
@@ -32,12 +35,32 @@ au BufNewFile,BufRead *.txt setf markdown
 
 " set glsl as syntax for files
 au BufNewFile,BufRead *.frag,*.vert,*.vsh,*.fsh setf glsl
+au BufNewFile,BufRead *.coffee setf js
 
 " this was commented out with zsh/solarized --- let g:solarized_termcolors=256
 " set t_Co=256
 
+" Turn off folding
+set nofoldenable
 
+" ###########################
+" #### NERDTree settings ####
+" ###########################
 
+" Ctrl-n opens NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" show current file in NERDTree
+nmap ,n :NERDTreeFind<CR>
+
+" open NERDTree when no file is specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
 
 " ##### added for vim-latex ######
 " IMPORTANT: grep will sometimes skip displaying the file name if you
