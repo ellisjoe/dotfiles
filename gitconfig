@@ -1,8 +1,8 @@
 [user]
-	name = Joe Ellis
-	email = ellis125@gmail.com
+    name = Joe Ellis
+    email = ellis125@gmail.com
 [color]
-	ui = auto
+    ui = auto
 [alias]
     st = status
     ci = commit
@@ -11,4 +11,4 @@
     df = diff
     lg = log -p
 [push]
-	default = simple
+    default = simple

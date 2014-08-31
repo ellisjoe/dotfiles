@@ -1,8 +1,8 @@
 filetype plugin on
 filetype indent on
 set expandtab
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set smartindent
 syntax enable
@@ -20,9 +20,6 @@ set number
 
 " show column numbers in statusline
 set ruler
-
-" show file name in statusline
-set statusline=%f
 
 " allow vim to find tags file in parent directories
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,tags
@@ -43,6 +40,9 @@ au BufNewFile,BufRead *.coffee setf js
 " Turn off folding
 set nofoldenable
 
+" fix some fucked up Vim 7.4 backspace problems
+set backspace=2
+
 " ###########################
 " #### NERDTree settings ####
 " ###########################
@@ -53,9 +53,11 @@ map <C-n> :NERDTreeToggle<CR>
 " show current file in NERDTree
 nmap ,n :NERDTreeFind<CR>
 
-" open NERDTree when no file is specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" ignore and dirs containing build
+let NERDTreeIgnore=['\~$', 'build[[dir]]']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'build',
+  \ }
 
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
