@@ -16,4 +16,4 @@ for DF in ${FILES[*]}; do
 done
 
 # install pathogen
-cp vim-pathogen/autoload/pathogen.vim vim/bundle/
+cp vim-pathogen/autoload/pathogen.vim vim/autoload/
