@@ -21,9 +21,6 @@ set number
 " show column numbers in statusline
 set ruler
 
-" show file name in statusline
-set statusline=%f
-
 " allow vim to find tags file in parent directories
 set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,tags
 
