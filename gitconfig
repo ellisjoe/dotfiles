@@ -3,7 +3,6 @@
 	email = ellis125@gmail.com
 [color]
 	ui = auto
-
 [alias]
     st = status
     ci = commit
