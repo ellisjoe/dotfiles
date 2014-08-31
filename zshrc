@@ -55,6 +55,12 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+alias zsrc='source ~/.zshrc'
+alias eclipse='open -na Eclipse.app'
+alias notify='terminal-notifier -message "Done" -title "NOTIFICATION"'
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -67,20 +73,5 @@ export EDITOR='vim'
 #   export EDITOR='mvim'
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# env var for cs154 grading scripts
-export CS154_ADMIN=/Users/jellis/svn-repos/cs154-2014-admin
-
-# needed to keep Maven from running out of memory while building Hadoop
-export MAVEN_OPTS="-Xms256m -Xmx512m"
-
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home"
-export HADOOP_INSTALL="/Users/jellis/svn-repos/hadoop/releases/hadoop-2.2.0"
-export HADOOP_HOME=${HADOOP_INSTALL}
-export PATH=$PATH:$HADOOP_INSTALL/bin
-
+alias hlog='git log --date-order --all --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
+alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
