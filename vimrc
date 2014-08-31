@@ -40,6 +40,9 @@ au BufNewFile,BufRead *.coffee setf js
 " Turn off folding
 set nofoldenable
 
+" fix some fucked up Vim 7.4 backspace problems
+set backspace=2
+
 " ###########################
 " #### NERDTree settings ####
 " ###########################
