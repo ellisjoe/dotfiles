@@ -43,3 +43,6 @@
 [submodule "solarized"]
 	path = solarized
 	url = git://github.com/altercation/solarized.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
