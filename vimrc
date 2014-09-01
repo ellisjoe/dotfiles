@@ -10,9 +10,6 @@ set background=dark
 set mouse=a
 colorscheme solarized
 
-" enable Pathogen
-execute pathogen#infect()
-
 " enable pathogen
 execute pathogen#infect()
 
