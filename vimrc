@@ -1,8 +1,8 @@
 filetype plugin on
 filetype indent on
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set autoindent
 set smartindent
 syntax enable
@@ -26,10 +26,13 @@ set ruler
 set nofoldenable
 
 " allow vim to find tags file in parent directories
-set tags=./tags,./../tags,./../../tags,./../../../tags,./../../../../tags,tags
+set tags=tags
 
 " exit insert mode without leaving home row
 inoremap jj <Esc>
+
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
 
 " open text files with markdown syntax and spell checking
 au BufNewFile,BufRead *.txt setf markdown
@@ -39,7 +42,7 @@ au BufNewFile,BufRead *.frag,*.vert,*.vsh,*.fsh setf glsl
 au BufNewFile,BufRead *.coffee setf js
 au BufNewFile,BufRead *.gradle setf groovy
 
-let mapleader = ","
+" let mapleader = ","
 " this was commented out with zsh/solarized --- let g:solarized_termcolors=256
 
 " better colors when logging in remotely through tmux
@@ -53,6 +56,31 @@ set nofoldenable
 
 " fix some fucked up Vim 7.4 backspace problems
 set backspace=2
+
+" read pdf into buffer
+command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+
+
+" ########################
+" #### Java Specifics ####
+" ########################
+" Highlight functions using Java style
+let java_highlight_functions="style"
+" Don't flag C++ keywords as errors
+let java_allow_cpp_keywords=1
+
+" ###########################
+" #### Vim-lldb Settings ####
+" ###########################
+
+" same mappings as Eclipse
+map <F5> :Lstepin<CR>
+map <F6> :Lnext<CR>
+map <F7> :Lfinish<CR>
+map <F8> :Lcontinue<CR>
+
+" toggle breakpoints
+map <C-b> :Lbreakpoint<CR>
 
 
 " ###########################

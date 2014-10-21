@@ -55,8 +55,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
-export PATH=$(brew --prefix coreutils)/libexec/gnubing:$PATH
-export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home # $(/usr/libexec/java_home)
 
 alias zsrc='source ~/.zshrc'
 alias eclipse='open -na Eclipse.app'
