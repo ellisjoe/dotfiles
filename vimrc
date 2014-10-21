@@ -44,7 +44,12 @@ au BufNewFile,BufRead *.gradle setf groovy
 
 " let mapleader = ","
 " this was commented out with zsh/solarized --- let g:solarized_termcolors=256
-" set t_Co=256
+
+" better colors when logging in remotely through tmux
+let g:remoteSession = ($STY == "")
+if g:remoteSession
+    set t_Co=256
+endif
 
 " Turn off folding
 set nofoldenable
