@@ -15,5 +15,7 @@ for DF in ${FILES[*]}; do
     ln -s $(pwd)/$DF ~/.$DF
 done
 
+ln -s $(pwd)/vimrc ~/.vrapperrc
+
 # install pathogen
 cp vim-pathogen/autoload/pathogen.vim vim/autoload/
