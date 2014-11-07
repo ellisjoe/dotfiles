@@ -51,7 +51,6 @@ ZSH_THEME="my-clean"
 plugins=(git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
