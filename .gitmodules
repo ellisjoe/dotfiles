@@ -58,3 +58,6 @@
 [submodule "zsh-syntax-highlighting"]
 	path = zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "vim/bundle/elm.vim"]
+	path = vim/bundle/elm.vim
+	url = git@github.com:lambdatoast/elm.vim.git
