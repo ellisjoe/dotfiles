@@ -155,3 +155,8 @@ autocmd BufRead,BufNewFile *.[ch]   exe 'so ' . fname
 autocmd BufRead,BufNewFile *.[ch] endif
 
 map <F2>  :so tags.vim<CR>
+
+" ################################
+" #### YouCompleteMe Settings ####
+" ################################
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
