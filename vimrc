@@ -160,3 +160,12 @@ map <F2>  :so tags.vim<CR>
 " #### YouCompleteMe Settings ####
 " ################################
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+
+" ############################
+" #### Syntastic Settings ####
+" ############################
+
+let g:syntastic_cpp_compiler = "clang++"
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+let g:syntastic_c_check_header = 1
