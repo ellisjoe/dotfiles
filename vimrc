@@ -19,8 +19,15 @@ set noswapfile
 " show line numbers on left
 set number
 
+set statusline+=%{fugitive#statusline()}
 " show column numbers in statusline
 set ruler
+
+" find the next match as we type the search
+set incsearch
+
+" hilight searches by default
+set hlsearch
 
 " disable folding
 set nofoldenable
