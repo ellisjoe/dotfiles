@@ -60,6 +60,12 @@ set backspace=2
 " read pdf into buffer
 command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
 
+" #############################
+" #### C++11 for Syntastic ####
+" #############################
+let g:syntastic_cpp_compiler = 'clang++'
+"let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
 
 " ########################
 " #### Java Specifics ####
