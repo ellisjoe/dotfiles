@@ -54,10 +54,13 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin"
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_55.jdk/Contents/Home # $(/usr/libexec/java_home)
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/bin"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
-alias zsrc='source ~/.zshrc'
+# set java version
+alias j7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
+alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
+
 alias eclipse='open -na Eclipse.app'
 alias notify='terminal-notifier -message "Done" -title "NOTIFICATION"'
 
@@ -78,3 +81,10 @@ alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)
 
 alias ocaml="rlwrap ocaml"
 alias zsrc="source ~/.zshrc"
+alias f="find . -name "
+
+# gradle
+alias gw="./gradlew"
+alias ge="./gradlew cleanEclipse eclipse"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

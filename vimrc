@@ -34,8 +34,12 @@ set nofoldenable
 " allow vim to find tags file in parent directories
 set tags=tags
 
+set foldmethod=syntax
+
 " exit insert mode without leaving home row
 inoremap jj <Esc>
+
+map <C-i> :noh<CR>
 
 set exrc            " enable per-directory .vimrc files
 set secure          " disable unsafe commands in local .vimrc files
