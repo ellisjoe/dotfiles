@@ -106,3 +106,6 @@ source /usr/local/dev-env/bin/profile
 
 # don't fail when glob doesn't find a match
 setopt nonomatch
+
+# compute lines of code (loc) per author
+alias loc='git ls-files -z | xargs -0n1 git blame -w --line-porcelain | grep -a "^author " | sort -f | uniq -c | sort -n'
