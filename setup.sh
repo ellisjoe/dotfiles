@@ -5,7 +5,7 @@ git submodule init
 git submodule update
 
 # add my theme to the themes directory of oh-my-zsh
-cp my-clean.zsh-theme oh-my-zsh/custom/themes
+cp my-clean.zsh-theme oh-my-zsh/themes
 
 cp -r zsh-syntax-highlighting oh-my-zsh/custom/plugins
 
