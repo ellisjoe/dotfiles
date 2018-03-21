@@ -7,7 +7,7 @@ set autoindent
 set smartindent
 syntax enable
 set background=dark
-set mouse=a
+set mouse=r
 colorscheme solarized
 
 " enable pathogen
@@ -54,6 +54,12 @@ au BufNewFile,BufRead *.txt setf markdown
 au BufNewFile,BufRead *.frag,*.vert,*.vsh,*.fsh setf glsl
 au BufNewFile,BufRead *.coffee setf js
 au BufNewFile,BufRead *.gradle setf groovy
+au BufNewFile,BufRead *.conjure setf yaml
+
+au FileType yml,yaml setl sw=2 sts=2 ts=2 expandtab
+
+au BufNewFile,BufRead *.txt,*.md set tw=80 spell
+set formatoptions+=t
 
 " let mapleader = ","
 " this was commented out with zsh/solarized --- let g:solarized_termcolors=256
@@ -72,6 +78,9 @@ set backspace=2
 
 " read pdf into buffer
 command! -complete=file -nargs=1 Rpdf :r !pdftotext -nopgbrk <q-args> -
+
+" auto resize panes when window is resized
+autocmd VimResized * wincmd =
 
 " #############################
 " #### C++11 for Syntastic ####
@@ -98,10 +107,6 @@ map <F6> :Lnext<CR>
 map <F7> :Lfinish<CR>
 map <F8> :Lcontinue<CR>
 
-" toggle breakpoints
-map <C-b> :Lbreakpoint<CR>
-
-
 " ###########################
 " #### NERDTree settings ####
 " ###########################
@@ -113,10 +118,10 @@ map <C-n> :NERDTreeToggle<CR>
 nmap ,n :NERDTreeFind<CR>
 
 " ignore dirs containing build
-let NERDTreeIgnore=['\~$', 'build[[dir]]']
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  'build',
-  \ }
+" let NERDTreeIgnore=['\~$', '^build[[dir]]']
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '^build',
+"   \ }
 
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k

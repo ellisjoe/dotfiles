@@ -48,20 +48,17 @@ ZSH_THEME="my-clean"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting)
+plugins=(git) # zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/scripts:/Users/jellis/.cargo/bin:/Users/jellis/git-repos/scripts"
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
-# set java version
-alias j7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
-alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
-
-alias eclipse='open -na Eclipse.app'
+alias zsrc='source ~/.zshrc'
+alias eclipse='open -na /Applications/Eclipse.app'
 alias notify='terminal-notifier -message "Done" -title "NOTIFICATION"'
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -76,15 +73,36 @@ export EDITOR='vim'
 # use vi bindings for readline enabled apps
 set editing-mode vi
 
+alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
+alias j7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
+
+# branch log
 alias hlog='git log --date-order --all --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
-alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
+alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s" $(git rev-parse --abbrev-ref HEAD) '
+#alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
+
+alias redock='dev stop && yes | dev rm -v && gw dockerTag --parallel && dev up'
 
 alias ocaml="rlwrap ocaml"
 alias zsrc="source ~/.zshrc"
-alias f="find . -name "
 
-# gradle
 alias gw="./gradlew"
 alias ge="./gradlew cleanEclipse eclipse"
+alias gi="./gradlew cleanIdea idea"
+alias gc="./gradlew check"
+alias gp="./gradlew publish"
+alias gb="./gradlew build"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+alias oi="open *.ipr"
+
+alias f="find . -name "
+alias xg="xargs grep"
+
+# proxy scp
+alias pscp='scp -o ProxyCommand="nc -x localhost:8080 %h %p"'
+
+MAIL=/var/spool/mail/jellis && export MAIL
+source /usr/local/dev-env/bin/profile
+
+# don't fail when glob doesn't find a match
+setopt nonomatch

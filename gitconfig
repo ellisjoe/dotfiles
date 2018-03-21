@@ -1,6 +1,6 @@
 [user]
     name = Joe Ellis
-    email = ellis125@gmail.com
+    email = jellis@palantir.com
 [color]
     ui = auto
 [alias]
@@ -10,5 +10,11 @@
     co = checkout
     df = diff
     lg = log -p
+    ls = log --pretty=format:"%C(yellow)%h\\ %Cred%ad\\ %Cblue%cn\\ %Creset%s" --decorate
+    ll = log --pretty=format:"%C(yellow)%h\\ %Cred%ad\\ %Cblue%cn\\ %Creset%s" --decorate --numstat
 [push]
     default = simple
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
