@@ -54,8 +54,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/scripts:/Users/jellis/.cargo/bin:/Users/jellis/git-repos/scripts"
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export PATH="/usr/local/opt/openssl@1.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/scripts:/Users/jellis/.cargo/bin:/Users/jellis/git-repos/scripts"
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 
 alias zsrc='source ~/.zshrc'
 alias eclipse='open -na /Applications/Eclipse.app'
@@ -73,13 +73,18 @@ export EDITOR='vim'
 # use vi bindings for readline enabled apps
 set editing-mode vi
 
+alias javav="/usr/libexec/java_home -v"
 alias j8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
-alias j7="export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)"
+alias j11="export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
+alias j15="export JAVA_HOME=$(/usr/libexec/java_home -v 15)"
+alias j17="export JAVA_HOME=$(/usr/libexec/java_home -v 15)"
 
 # branch log
 alias hlog='git log --date-order --all --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
 alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s" $(git rev-parse --abbrev-ref HEAD) '
 #alias xlog='git log --date-order --graph --format="%C(green)%h %Creset%C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset %s"'
+
+ggb() { git grep -n $1 | while IFS=: read i j k; do git blame -L $j,$j $i | cat; done }
 
 alias redock='dev stop && yes | dev rm -v && gw dockerTag --parallel && dev up'
 
@@ -102,10 +107,16 @@ alias xg="xargs grep"
 alias pscp='scp -o ProxyCommand="nc -x localhost:8080 %h %p"'
 
 MAIL=/var/spool/mail/jellis && export MAIL
-source /usr/local/dev-env/bin/profile
 
 # don't fail when glob doesn't find a match
 setopt nonomatch
 
 # compute lines of code (loc) per author
 alias loc='git ls-files -z | xargs -0n1 git blame -w --line-porcelain | grep -a "^author " | sort -f | uniq -c | sort -n'
+
+#export PATH="/usr/local/opt/node@10/bin:$PATH"
+#export PATH="/usr/local/opt/icu4c/bin:$PATH"
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

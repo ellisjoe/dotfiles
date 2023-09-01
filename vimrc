@@ -9,6 +9,7 @@ syntax enable
 set background=dark
 set mouse=r
 colorscheme solarized
+set visualbell
 
 " enable pathogen
 execute pathogen#infect()
@@ -37,7 +38,10 @@ set tags=tags
 set foldmethod=syntax
 
 " vimdiff always vertical splits
-set diffopt+=vertical
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 
 " exit insert mode without leaving home row
 inoremap jj <Esc>
