@@ -54,7 +54,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/opt/openssl@1.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/scripts:/Users/jellis/.cargo/bin:/Users/jellis/git-repos/scripts"
+export PATH="/usr/local/opt/openssl@1.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/texbin:/Users/jellis/scripts:/Users/jellis/.cargo/bin:/Users/jellis/git-repos/scripts:/opt/homebrew/bin"
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 
 alias zsrc='source ~/.zshrc'
